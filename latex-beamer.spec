@@ -19,6 +19,7 @@ BuildRequires:  latex-pgf >= 0:1.01
 BuildRequires:  latex-xcolor >= 0:2.00
 BuildRequires:  tetex-latex
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 The beamer class is a LaTeX class that allows you to create a beamer
