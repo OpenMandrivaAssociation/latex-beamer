@@ -4,7 +4,7 @@
 
 Name:           latex-%{rname}
 Version:        3.07
-Release:        %mkrel 1
+Release:        %mkrel 3
 Epoch:          0
 Summary:        LaTeX class to produce presentations 
 License:        GPL
