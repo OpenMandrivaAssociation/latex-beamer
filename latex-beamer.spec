@@ -1,16 +1,15 @@
-%bcond_with     manual
-
 %define rname   beamer
+%define rversion 3-10
 
 Name:           latex-%{rname}
-Version:        3.07
-Release:        %mkrel 4
+Version:        3.10
+Release:        %mkrel 1
 Epoch:          0
 Summary:        LaTeX class to produce presentations 
 License:        GPL
 Group:          Publishing
-URL:            http://latex-beamer.sourceforge.net/
-Source0:        http://ovh.dl.sourceforge.net/latex-beamer/latex-beamer-%{version}.tar.gz
+URL:            http://bitbucket.org/rivanvx/beamer/wiki/Home
+Source0:        http://bitbucket.org/rivanvx/beamer/get/version-%{rversion}.tar.bz2
 Requires:       latex-pgf >= 0:1.01
 Requires:       latex-xcolor >= 0:2.00
 Requires:       tetex-latex
@@ -42,30 +41,18 @@ Finally, you can easily change the whole slide theme or only parts of
 it.
 
 %prep
-%setup -q
-%{_bindir}/find . -name '.*.jpg' -o -name '*~' | %{_bindir}/xargs -t %{__rm}
+%setup -q -n %{rname}
 
 %build
 # FIXME: this doc can't be built without the themes
-%if %with manual
 pushd doc
-%{__rm} -f doc/%{rname}.pdf
-%{_bindir}/latex %{rname}userguide.tex
-%{_bindir}/latex %{rname}userguide.tex
-%{_bindir}/pdflatex %{rname}userguide.tex
-%{__rm} %{rname}userguide.{aux,dvi,log,out,toc}
-popd
-%endif
+%__make
 
 %install
 %{__rm} -rf %{buildroot}
 
 %{__mkdir_p} %{buildroot}%{_datadir}/texmf/tex/latex/%{rname}
 %{__cp} -a base %{buildroot}%{_datadir}/texmf/tex/latex/%{rname}
-%{__mkdir_p} %{buildroot}%{_datadir}/texmf/tex/latex/%{rname}/emulation
-%{__cp} -a emulation/*.sty %{buildroot}%{_datadir}/texmf/tex/latex/%{rname}/emulation
-%{__cp} -a extensions %{buildroot}%{_datadir}/texmf/tex/latex/%{rname}
-%{__cp} -a themes %{buildroot}%{_datadir}/texmf/tex/latex/%{rname}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -77,6 +64,7 @@ popd
 [ -x %{_bindir}/texhash ] && %{_bindir}/env - %{_bindir}/texhash 2> /dev/null || :
 
 %files
-%defattr(0644,root,root,0755)
-%doc AUTHORS ChangeLog FILES INSTALL README TODO doc emulation/examples examples solutions
+%defattr(-,root,root)
+%doc AUTHORS ChangeLog FILES INSTALL README TODO
+%doc doc/beameruserguide.pdf examples solutions
 %{_datadir}/texmf/tex/latex/%{rname}
