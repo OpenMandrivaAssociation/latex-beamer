@@ -16,7 +16,7 @@ BuildRequires:  ghostscript
 BuildRequires:  texlive-pgf >= 0:1.01
 BuildRequires:  texlive-xcolor >= 0:2.00
 BuildRequires:  texlive-latex
-BuildRequires:	texlive-makeindex texlive-collection-latex texlive
+BuildRequires:	texlive-makeindex texlive-collection-latex
 BuildArch:      noarch
 
 %description
