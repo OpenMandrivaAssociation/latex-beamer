@@ -3,7 +3,7 @@
 
 Name:           latex-%{rname}
 Version:        %(echo %rversion |sed -e 's,-,.,g')
-Release:        1
+Release:        2
 Summary:        LaTeX class to produce presentations 
 License:        GPL
 Group:          Publishing
