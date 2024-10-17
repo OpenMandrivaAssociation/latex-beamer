@@ -7,7 +7,7 @@ Release:        2
 Summary:        LaTeX class to produce presentations 
 License:        GPL
 Group:          Publishing
-URL:            http://bitbucket.org/rivanvx/beamer/wiki/Home
+URL:            https://bitbucket.org/rivanvx/beamer/wiki/Home
 Source0:        http://bitbucket.org/rivanvx/beamer/get/version-%{rversion}.tar.bz2
 Requires:       texlive-pgf >= 0:1.01
 Requires:       texlive-xcolor >= 0:2.00
